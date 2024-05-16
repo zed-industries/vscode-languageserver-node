@@ -307,7 +307,7 @@ function patchConsole(logger: Logger): undefined {
 	};
 
 	console.dir = function dir(arg, options){
-		// @ts-expect-error https://github.com/DefinitelyTyped/DefinitelyTyped/pull/66626
+		// @ts-ignore https://github.com/DefinitelyTyped/DefinitelyTyped/pull/66626
 		logger.log(inspect(arg, options));
 	};
 
