@@ -6,9 +6,6 @@
     "files": [],
     "references": [
         {
-            "path": "./../protocol/tsconfig.json"
-        },
-        {
             "path": "./src/common/tsconfig.json"
         },
         {
