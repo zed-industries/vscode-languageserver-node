@@ -39,6 +39,8 @@ export interface TextDocumentChangeEvent<T> {
 	 * The document that has changed.
 	 */
 	document: T;
+	// Changes to the document
+	changes?: TextDocumentContentChangeEvent[]
 }
 
 /**
@@ -212,7 +214,7 @@ export class TextDocuments<T extends { uri: DocumentUri }> {
 			if (syncedDocument !== undefined) {
 				syncedDocument = this._configuration.update(syncedDocument, changes, version);
 				this._syncedDocuments.set(td.uri, syncedDocument);
-				this._onDidChangeContent.fire(Object.freeze({ document: syncedDocument }));
+				this._onDidChangeContent.fire(Object.freeze({ document: syncedDocument, changes }));
 			}
 		}));
 		disposables.push(connection.onDidCloseTextDocument((event: DidCloseTextDocumentParams) => {
