@@ -23,7 +23,10 @@
         "outDir": "../../lib/node",
         "tsBuildInfoFile": "../../lib/node/compile.tsbuildInfo",
         "incremental": true,
-        "composite": true
+        "composite": true,
+        "paths": {
+          "*": ["../../node_modules/@types/*"]
+        }
     },
     "include": [
         "."
